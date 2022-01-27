@@ -1,15 +1,15 @@
-#!/Windows/py.exe
+#!/usr/Appdata/Local/Microsoft/WindowsApps/python.exe
 
 import re
 import sys
 
-regex = r'^\[[0-9]+\][a-zA-Z]+'
-msg = ''
-with open(sys.argv[1], 'r') as os:
-    msg = os.read()
+compare_to = "\[\d+\] .+"
+msg = open(sys.argv[1], 'r').read()
 
-if not re.match(regex, msg):
-    print('Commit message pattern is: [Task number]Description')
+
+if not re.match(compare_to, msg):
+    print('Incorrect commit message')
+    print('Correct commit message: [1] "commit message"')
     sys.exit(-1)
 
 
